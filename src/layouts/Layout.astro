@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { title = 'ALPHA_POLARIS — future of homelab', description = '個人の好奇心から、つくる、つなぐ。ALPHA_POLARISの活動とサービスをご紹介します。' } = Astro.props;
+const { title = 'ALPHA_POLARIS — future of homelab', description = '個人の好奇心から、つくる、つなぐ。ALPHA_POLARISの活動、サービス、開発中のAIエージェント「ぬる」をご紹介します。' } = Astro.props;
 const path = Astro.url.pathname;
 ---
 <!doctype html>
@@ -8,7 +8,7 @@ const path = Astro.url.pathname;
 <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content={description} /><meta name="theme-color" content="#f6f8fc" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><title>{title}</title></head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
-<header class="header wrap"><a class="brand" href="/" aria-label="ALPHA_POLARIS ホーム"><span class="brand-symbol" aria-hidden="true">✳</span> ALPHA_POLARIS</a><nav aria-label="メインナビゲーション"><a href="/#about">私たちについて</a><a href="/#services">サービス</a><a class="nav-github" href="https://github.com/alpha-polaris">GitHub <span aria-hidden="true">↗</span></a></nav></header>
+<header class="header wrap"><a class="brand" href="/" aria-label="ALPHA_POLARIS ホーム"><span class="brand-symbol" aria-hidden="true">✳</span> ALPHA_POLARIS</a><nav aria-label="メインナビゲーション"><a href="/#about">私たちについて</a><a href="/#services">プロジェクト</a><a href="/#null">ぬる</a><a class="nav-github" href="https://github.com/alpha-polaris">GitHub <span aria-hidden="true">↗</span></a></nav></header>
 <main id="main"><slot /></main>
 <footer class="wrap footer"><div><a class="brand" href="/"><span class="brand-symbol" aria-hidden="true">✳</span> ALPHA_POLARIS</a><p>小さなラボから、その先へ。</p><small>© {new Date().getFullYear()} ALPHA_POLARIS</small></div><nav aria-label="フッターナビゲーション"><a href="/terms/" aria-current={path.startsWith('/terms') ? 'page' : undefined}>利用規約</a><a href="/privacy/" aria-current={path.startsWith('/privacy') ? 'page' : undefined}>プライバシーポリシー</a><a href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}>お問い合わせ <span aria-hidden="true">↗</span></a></nav><a class="back-top" href="#" aria-label="ページの先頭へ">↑</a></footer>
 </body></html>

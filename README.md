@@ -4,7 +4,7 @@ ALPHA_POLARISの紹介サイト。Astroで静的ページを生成します。
 
 ## ページ
 
-- `/` — 団体紹介、APL_SV・けもみみぐるいの紹介
+- `/` — 団体紹介、ぬる（WIP）・APL_SV・けもみみぐるいの紹介
 - `/terms/` — 利用規約（確認用ドラフト）
 - `/privacy/` — プライバシーポリシー（確認用ドラフト）
 - `/contact/` — 主宰のサイト、GitHub Issuesへの連絡導線
@@ -36,4 +36,12 @@ npm run build
 - 問い合わせ先と情報開示等の受付方法
 - 適用開始日と変更通知方法
 
-確認後、`terms.astro` と `privacy.astro` の `Document` にある `draft` 属性を外し、適用開始日を明記してください。
+確認後、`src/pages/terms.md` と `src/pages/privacy.md` のfrontmatterを `draft: false` に変更し、適用開始日を明記してください。
+
+## デザイン
+
+Material 3の色役割をCSS変数で共有し、OSのダークモードに追従します。サービスアイコンはGoogle Material Symbols Roundedをローカル配信します（`public/icons/LICENSE`）。ぬるの紹介は運営者から提供されたプロジェクト説明に基づきます。
+
+## 文書の編集
+
+利用規約・プライバシーポリシー・お問い合わせは、`src/pages/terms.md`、`src/pages/privacy.md`、`src/pages/contact.md` で管理します。本文は通常のMarkdownで、見出しは `##`、リストは `-`、リンクは `[表示名](URL)` を使用してください。タイトル・概要・ドラフト表示は各ファイル冒頭のfrontmatterで編集できます。共通の見た目は `src/layouts/Document.astro` が担当します。URLは従来どおりです。
