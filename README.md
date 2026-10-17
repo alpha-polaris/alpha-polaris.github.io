@@ -62,3 +62,9 @@ updated: '2026-10-18'
 ```
 
 本文は `##` から記述してください。`order` は昇順、同順の場合はタイトル順で表示します。`status: draft` は非公開フラグではなく、一覧と詳細に草案であることを明示して公開する設定です。正式な文書にする際は `published` に変更してください。目次は `##` と `###` から生成します。既存の利用規約等は引き続き `src/pages/*.md` で管理します。
+
+## GitHub Actions / GitHub Pages
+
+`.github/workflows/deploy.yml` で、`main` へのpushと手動実行時にビルド・公開します。`main` 向けのPull Requestではビルドのみ実行し、公開しません。Node.js 24とpnpm 10を使い、`pnpm-lock.yaml` に従って依存関係を導入します。
+
+GitHubのリポジトリ設定で **Settings → Pages → Build and deployment → Source: GitHub Actions** を選択してください。公開先は `https://alpha-polaris.github.io/` です。独自ドメインを使う際は、Pagesの設定と `astro.config.mjs` の `site` を合わせて更新してください。
