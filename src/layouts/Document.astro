@@ -1,0 +1,5 @@
+---
+import Layout from './Layout.astro';
+const { title, label, intro, draft = false } = Astro.props;
+---
+<Layout title={`${title} | ALPHA_POLARIS`} description={intro}><div class="wrap document"><a class="inline-link" href="/">← ホームへ戻る</a><header class="document-header"><span class="eyebrow">{label}</span><h1>{title}</h1><p>{intro}</p>{draft && <aside class="draft-note"><strong>公開前の確認用ドラフト</strong><br />本書はサイト制作時の草案です。サービスごとの運用、情報の取扱い、適用開始日を運営者が確認したうえで正式公開します。</aside>}</header><div class="document-body"><slot /></div></div></Layout>

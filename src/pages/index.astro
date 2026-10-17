@@ -1,11 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
-	<Welcome />
+<div class="wrap">
+<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><span class="eyebrow"><span class="dot"></span> A SMALL, PERSONAL LAB</span><h1 id="hero-title">好きから、<br />その先を<span class="blue">つくる。</span></h1><p>サーバーも、コミュニティも、好奇心から。<br />小さなホームラボで、できることを少しずつ。</p><div class="actions"><a class="button primary" href="#services">サービスを見る <span>↗</span></a><a class="button text-button" href="#about">私たちについて <span>↓</span></a></div><span class="hero-caption">ALPHA_POLARIS / future of homelab</span></div>
+<div class="lab-art" role="img" aria-label="北極星の軌道とホームサーバーを描いたイラスト"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span class="art-star">✦</span><span class="little-star">✧</span><span class="art-label">EXPLORE. BUILD. CONNECT.</span><div class="server"><div class="server-top"><span>APL / LAB</span><span>✳</span></div><div class="server-unit"><i></i><span></span><b>01</b></div><div class="server-unit"><i></i><span></span><b>02</b></div><div class="server-unit"><i></i><span></span><b>03</b></div><div class="server-bottom">● <span>POWERED BY CURIOSITY</span></div></div><div class="art-chip"><span class="dot"></span> Hello, homelab.</div><span class="coordinates">35° N &nbsp; / &nbsp; A LITTLE CLOSER TO THE FUTURE</span></div></section>
+<section id="about" class="about section"><div><span class="eyebrow">01 / ABOUT US</span><h2>小さく、自由に。<br />自分たちのペースで。</h2></div><div class="about-copy"><p class="large-copy">ALPHA_POLARISは、<br />ここあが主宰する個人的な団体です。</p><p>大きなことを約束するより、気になったことを試してみる。<br class="desktop-break" />ホームラボを起点に、ホスティングや身近な人のための<br class="desktop-break" />コミュニティを、ゆるく運営しています。</p><div class="chips"><span>個人運営</span><span>ホームラボ</span><span>好奇心が原動力</span></div><a class="inline-link" href="https://amase.cc">主宰・ここあについて <span>↗</span></a></div></section>
+<section id="services" class="section services"><div class="section-heading"><div><span class="eyebrow">02 / WHAT WE DO</span><h2>ラボから生まれたもの。</h2></div><p>つくって、動かして、つながる。</p></div><div class="service-grid"><article class="service-card hosting"><div class="card-top"><span class="service-icon" aria-hidden="true">▤</span><span class="tag">HOSTING</span></div><h3>APL_SV</h3><p>帯域幅が狭い、<br />ホスティングサービスみたいな何か。</p><p class="service-detail">小さなホームラボから動かす、私たちのホスティング。提供内容や利用については、主宰にお問い合わせください。</p><a class="button outline" href="/contact/">利用について相談する <span>↗</span></a><span class="card-number">01</span></article><article class="service-card community"><div class="card-top"><span class="service-icon" aria-hidden="true">✳</span><span class="tag">COMMUNITY</span></div><h3>けもみみぐるい</h3><p>気の知れた人たちと、<br />いつもの場所で、いつもの話を。</p><p class="service-detail">身内向けに運営しているMisskeyサーバーです。参加条件やサーバーのルールは、リンク先でご確認ください。</p><a class="button outline" href="https://msk.amase.cc">サーバーを見にいく <span>↗</span></a><span class="card-number">02</span></article></div></section>
+<section class="join"><div><span class="eyebrow">OPEN THE NEXT DOOR</span><h2>ラボの続きを、GitHubで。</h2><p>私たちの活動や公開リポジトリはこちらから。</p></div><a class="button primary" href="https://github.com/alpha-polaris">GitHubをのぞく <span>↗</span></a></section>
+</div>
 </Layout>
