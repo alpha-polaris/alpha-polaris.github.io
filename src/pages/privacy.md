@@ -3,7 +3,6 @@ layout: ../layouts/Document.astro
 title: "プライバシーポリシー"
 label: "PRIVACY POLICY"
 intro: "ALPHA_POLARISにおける、利用者の情報の取扱いについて。"
-draft: true
 ---
 
 ## 1. 基本方針
