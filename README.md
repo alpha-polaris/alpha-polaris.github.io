@@ -45,3 +45,20 @@ Material 3の色役割をCSS変数で共有し、OSのダークモードに追�
 ## 文書の編集
 
 利用規約・プライバシーポリシー・お問い合わせは、`src/pages/terms.md`、`src/pages/privacy.md`、`src/pages/contact.md` で管理します。本文は通常のMarkdownで、見出しは `##`、リストは `-`、リンクは `[表示名](URL)` を使用してください。タイトル・概要・ドラフト表示は各ファイル冒頭のfrontmatterで編集できます。共通の見た目は `src/layouts/Document.astro` が担当します。URLは従来どおりです。
+
+## ドキュメント（/docs）
+
+`src/content/docs/` にMarkdownファイルを追加すると、一覧・詳細ページ・見出しの目次が自動生成されます。ファイル名がURLになります（例: `fediverse-block-policy.md` → `/docs/fediverse-block-policy/`）。サブディレクトリにも対応しています。
+
+```yaml
+---
+title: ドキュメントのタイトル
+description: 一覧やページ冒頭に表示する概要
+category: 運営方針
+order: 10
+status: draft
+updated: '2026-10-18'
+---
+```
+
+本文は `##` から記述してください。`order` は昇順、同順の場合はタイトル順で表示します。`status: draft` は非公開フラグではなく、一覧と詳細に草案であることを明示して公開する設定です。正式な文書にする際は `published` に変更してください。目次は `##` と `###` から生成します。既存の利用規約等は引き続き `src/pages/*.md` で管理します。

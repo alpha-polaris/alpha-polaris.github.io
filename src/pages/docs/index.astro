@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+const documents = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'ja'));
+---
+<Layout title="ドキュメント | ALPHA_POLARIS" description="ALPHA_POLARISの運営方針やサービスに関するドキュメント。">
+  <div class="wrap docs-index">
+    <header class="document-header">
+      <span class="eyebrow">DOCUMENTATION</span>
+      <h1>ドキュメント</h1>
+      <p>サービスの運営方針や、利用にあたってのガイドをまとめています。</p>
+    </header>
+    <ul class="docs-list" aria-label="ドキュメント一覧">
+      {documents.map(doc => <li><a class="docs-card" href={`/docs/${doc.id}/`}>
+        <div class="docs-card-meta"><span>{doc.data.category}</span>{doc.data.status === 'draft' && <span class="status-chip">草案</span>}</div>
+        <h2>{doc.data.title}<span aria-hidden="true"> →</span></h2>
+        <p>{doc.data.description}</p>
+        <small>更新日 <time datetime={doc.data.updated}>{doc.data.updated}</time></small>
+      </a></li>)}
+    </ul>
+    {documents.length === 0 && <p class="docs-empty">ドキュメントは準備中です。</p>}
+  </div>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+export async function getStaticPaths() {
+  return (await getCollection('docs')).map(doc => ({ params: { id: doc.id }, props: { doc } }));
+}
+interface Props { doc: CollectionEntry<'docs'> }
+const { doc } = Astro.props;
+const { Content, headings } = await render(doc);
+const documents = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'ja'));
+const toc = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+<Layout title={`${doc.data.title} | ALPHA_POLARIS Docs`} description={doc.data.description}>
+  <div class="wrap docs-shell">
+    <aside class="docs-sidebar">
+      <a class="inline-link" href="/docs/">← ドキュメント一覧</a>
+      <nav aria-label="ドキュメント"><ul>{documents.map(item => <li><a href={`/docs/${item.id}/`} aria-current={item.id === doc.id ? 'page' : undefined}>{item.data.title}</a></li>)}</ul></nav>
+      {toc.length > 0 && <details class="docs-toc" open><summary>このページの内容</summary><nav aria-label="目次"><ol>{toc.map(h => <li class:list={[{ 'toc-subheading': h.depth === 3 }]}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>}
+    </aside>
+    <article class="docs-article">
+      <header class="document-header"><span class="eyebrow">{doc.data.category}</span><h1>{doc.data.title}</h1><p>{doc.data.description}</p><p class="docs-updated">更新日 <time datetime={doc.data.updated}>{doc.data.updated}</time></p>
+        {doc.data.status === 'draft' && <aside class="draft-note"><strong>運用前の確認用草案</strong><br />この文書は検討中の方針です。正式な運用基準としての適用は、運営者の確認と告知後に行います。</aside>}
+      </header>
+      <div class="document-body"><Content /></div>
+      <a class="inline-link docs-return" href="/docs/">← ドキュメント一覧へ戻る</a>
+    </article>
+  </div>
+</Layout>
